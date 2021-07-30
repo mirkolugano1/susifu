@@ -16,6 +16,12 @@ namespace Menuplanung
             var entries = listOfObjects.Count();
             Random r = new Random();
 
+            var now = DateTime.Now;
+            if (args.Length == 0 || string.IsNullOrEmpty(args[0])) {
+                var remaining = 30 - now.Day;
+                now = now.AddDays(remaining + 10);
+            }
+
             var month = DateTime.Now.ToString("MM");
             var days = 31;
             switch (month)
