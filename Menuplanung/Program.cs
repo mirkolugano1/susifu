@@ -10,8 +10,9 @@ namespace Menuplanung
     {
         static void Main(string[] args)
         {
-            var directory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;            
-            var listOfObjects = File.ReadLines($"{directory}/list.csv").Select(line => new Tuple<string, string>(line.Split(',')[0], String.Join(",", line.Split(',').Skip(1)).Trim('"'))).ToList();
+            var directoryBase = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
+            var directory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.Parent.FullName;            
+            var listOfObjects = File.ReadLines($"{directoryBase}/list.csv").Select(line => new Tuple<string, string>(line.Split(',')[0], String.Join(",", line.Split(',').Skip(1)).Trim('"'))).ToList();
             //test
             var entries = listOfObjects.Count();
             Random r = new Random();
@@ -69,7 +70,7 @@ namespace Menuplanung
             }
             sb.Append("};");
 
-            File.WriteAllText($"{directory}/menus.js", sb.ToString());
+            File.WriteAllText($"{directory}/Webseite/Scripts/menus.js", sb.ToString());
         }
 
         static int CountOccurrences(List<string> usedCategories, string str)
