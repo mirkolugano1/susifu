@@ -22,7 +22,7 @@ namespace Menuplanung
                 now = now.AddDays(remaining + 10);
             }
 
-            var month = DateTime.Now.ToString("MM");
+            var month = now.ToString("MM");
             var days = 31;
             switch (month)
             {
