@@ -12,7 +12,7 @@ namespace Menuplanung
         {
             var directory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;            
             var listOfObjects = File.ReadLines($"{directory}/list.csv").Select(line => new Tuple<string, string>(line.Split(',')[0], String.Join(",", line.Split(',').Skip(1)).Trim('"'))).ToList();
-
+            //test
             var entries = listOfObjects.Count();
             Random r = new Random();
 
