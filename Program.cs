@@ -43,19 +43,24 @@ namespace Menuplanung
             sb.AppendLine();
             for (var i = 0; i < days; i++)
             {
-                if (i % 7 == 0) usedCategories.Clear();
+                if (i % 14 == 0) usedCategories.Clear();
                 int rInt;
                 bool contained;
+                Tuple<string, string> tup;
+
                 do
                 {
                     rInt = r.Next(0, entries);
                     if (rInt == entries) rInt--;
-                    contained = usedEntries.Contains(rInt) && CountOccurrences(usedCategories, listOfObjects[rInt].Item1) > 1;
-                    if (!contained) usedEntries.Add(rInt);
+                    tup = listOfObjects[rInt];
+                    contained = usedEntries.Contains(rInt) || CountOccurrences(usedCategories, tup.Item1) > 1;
+                    if (!contained)
+                    {
+                        usedEntries.Add(rInt);
+                        usedCategories.Add(tup.Item1);
+                    }
                 } while (contained);
 
-                var tup = listOfObjects[rInt];
-                usedCategories.Add(tup.Item1);
                 var label = tup.Item2;
                 label = label.Replace("'", "\\'");
                 sb.Append($"{i + 1}: '{label}'");
