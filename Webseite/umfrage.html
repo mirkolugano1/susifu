@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>    
+        <script type="text/javascript" src="scripts/umfrage.js"></script>
+        <link type="text/css" rel="stylesheet" href="css/umfrage.css" />
+    </head>
+    <body>
+        <div id="c0" class="container">
+            Liebe Susi,
+            <br/>
+            <br/>
+            Alles Gute zu deinem Geburtstag, und herzlich willkommen zur heutigen Umfrage!
+            <br/>
+            <br/>
+            Jetzt werden dich ein paar Fragen über Jiji gestellt, um deine Jiji-Kenntnisse zu überprüfen.<br/>
+            Falls du das Test bestehen wirst, erscheint eine letzte kleine Aufgabe.
+            Bist du parat?
+            <br/>
+            <br/>
+            <button onclick="show(1)">JA</button>
+            <button onclick="tempMsg('Ok, wenn du parat bist, einfach auf JA klicken')">NEIN</button>
+        </div>
+        <div id="c1" class="container hidden">
+            Frage 1:
+            <br/>
+            <br/>
+            <div class="question">Wie alt ist Jiji?</div>
+            <br/>
+            <br/>
+            <button onclick="tempMsg('also, bitte!')">81</button>
+            <button onclick="show(2, 'Korrekt!')">36</button>
+            <button onclick="tempMsg('wäre nicht schlecht...')">24</button>
+        </div>
+        <div id="c2" class="container hidden">
+            Frage 2:
+            <br/>
+            <br/>
+            <div class="question">Jiji ist doch ein Meister in Allem, aber worin besonders?</div>
+            <br/>
+            <br/>
+            <button onclick="tempMsg('ja sicher... es ist schon gut, wenn ich schweben kann.')">Schwimmen, Paddeln, Segeln</button>
+            <button onclick="tempMsg('na, wirklich? das wusste ich nicht!')">Klettern, Tennis, Reiten</button>
+            <button onclick="show(3, 'Unter anderen, aber das ist doch richtig!')">Fussball, Golf, Schach</button>
+        </div>
+        <div id="c3" class="container hidden">
+            Frage 3:
+            <br/>
+            <br/>
+            <div class="question">Über welches Team freut sich Jiji?</div>
+            <br/>
+            <br/>
+            <button class="smallButton" onclick="tempMsg('Ahem...')">Milan</button>
+            <button class="disabledFixed">Juve (merda)</button>
+            <button onclick="show(4, 'Natürlich!')">INTER</button>
+        </div>
+        <div id="c4" class="container hidden">
+            Frage 4:
+            <br/>
+            <br/>
+            <div class="question">Aus welchem Teil Italiens kommt Jiji?</div>
+            <br/>
+            <br/>
+            <button onclick="show(5, 'Gut gemacht!')">Piemonte</button>
+            <button onclick="tempMsg('Zum Glück nicht...')">Milano</button>
+            <button onclick="tempMsg('Ich habe \'Teil Italiens\' gesagt, nicht Afrikas!')">Terronia</button>
+        </div>
+        <div id="c5" class="container hidden">
+            Frage 5:
+            <br/>
+            <br/>
+            <div class="question">Was muss im Jijis Haus nie fehlen?</div>
+            <br/>
+            <br/>            
+            <button onclick="tempMsg('Ich heisse nicht Germidi Soia')">Soja</button>
+            <button onclick="tempMsg('Du musst auf diese Option aus Versehen geklickt haben... es gibt keine andere Erklärung dazu.')">Tofu</button>
+            <button onclick="show(6, 'Genau!')">Pasta</button>
+        </div>
+        <div id="c6" class="container hidden">
+            Frage 6:
+            <br/>
+            <br/>
+            <div class="question">Wen schlägt Jiji jedes Mal beim Golf spielen?</div>
+            <br/>
+            <br/>            
+            <button onclick="tempMsg('Nein, aber nur weil ich gegen ihn noch nie gespielt habe.')">Tiger Woods</button>
+            <button onclick="show(7, 'Genau!')">Toro</button>
+            <button onclick="tempMsg('Falsches Sport, oder?')">Roger Federer</button>
+        </div>
+        <div id="c7" class="container hidden">
+            Frage 7:
+            <br/>
+            <br/>
+            <div class="question">In wie vielen Spielen mit den Züri Senioren hat Jiji <b>KEIN</b> Tor geschossen?</div>
+            <br/>
+            <br/>            
+            <button onclick="show(8, 'Richtig! Jiji trifft immer. IMMER.')">Gar keines</button>
+            <button onclick="tempMsg('Falsch! Bitte versuche es nochmals.')">1</button>            
+            <button onclick="tempMsg('Falsch! Bitte versuche es nochmals.')">2</button>
+        </div>
+        <div id="c8" class="container hidden">
+            Frage 8:
+            <br/>
+            <br/>
+            <div class="question">Was ist Jijis Vaters Hobby?</div>
+            <br/>
+            <br/>                        
+            <button onclick="tempMsg('Sowas in der Art, aber nicht richtig.')">Fischen</button>            
+            <button onclick="tempMsg('Nene, gar nicht...')">Fussball</button>
+            <button onclick="show(9, 'Prima!')">Jagd</button>
+        </div>
+        <div id="c9" class="container hidden">
+            Frage 9:
+            <br/>
+            <br/>
+            <div class="question">Was ist Jijis politische Auffassung?</div>
+            <br/>
+            <br/>                        
+            <button onclick="tempMsg('Zitat: Ein Komunist ist ein gescheiterter Kapitalist.')">Komunismus</button>            
+            <button onclick="tempMsg('Mildere Version vom Komunismus, aber NOCH FALSCH!!')">Sozialismus</button>
+            <button onclick="show(10, 'SVP! SVP! SVP!')">MACHT DURCH DISZIPLIN !!!!</button>
+        </div>
+        <div id="c10" class="container hidden">
+            Frage 10:
+            <br/>
+            <br/>
+            <div class="question">Nach welcher Mode kann Jijis Bekleidung gekennzeichnet werden?</div>
+            <br/>
+            <br/>                        
+            <button onclick="tempMsg('Das ist etwas übertrieben...')">Mittelalter</button>            
+            <button onclick="tempMsg('Echt?')">Modern</button>
+            <button onclick="show(11, 'Jiji folgt keine Mode. Jiji MACHT Mode.')">80ern Jahren</button>
+        </div>
+        <div id="c11" class="container hidden">
+            Gratuliere, du hast alle Fragen korrekt beantwortet.
+            <br/>            
+            Die letzte Aufgabe besteht darin, eine letzte Frage zu beantworten. Klick auf den Button, um sie anzuzeigen.
+            <br/>            
+            <br/>            
+            <button onclick="show(12)">Zur letzten Frage</button>
+        </div>
+        <div id="c12" class="container hidden">
+            <div class="final">Willst du mich heiraten?</div>
+            <br/>                                      
+            <button onclick="tempMsg('Richtige Antwort! Herzlichen Glückwunsch!', true)">Ja</button>                
+            <button onclick="tempMsg('Richtige Antwort! Herzlichen Glückwunsch!', true)">Sicher</button>                
+            <button onclick="tempMsg('Richtige Antwort! Herzlichen Glückwunsch!', true)">Klar</button>                
+            <button onclick="tempMsg('Richtige Antwort! Herzlichen Glückwunsch!', true)">Natürlich</button>                
+        </div>
+        <div id="msg">
+
+        </div>
+    </body>
+</html>

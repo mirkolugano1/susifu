@@ -1,0 +1,57 @@
+body {
+	font-family: verdana;
+}
+
+.flexContainer {	
+	display: flex;	
+	justify-content: center;
+  	align-items: center;
+   	align-content: center;   	
+}
+
+.flexContainer > div {
+    width: 10%;	
+	border-bottom: 1px solid black;
+	border-left: 1px solid black;
+	font-size: 13px;	
+}
+
+.flexContainer:not(.top) {
+	height: 10%;
+}
+
+.flexContainer:not(.top) > div {
+	height: 100%;	
+}
+
+.flexContainer.top > div {
+	padding: 4px 0;
+	text-align: center;
+	border-top: 1px solid black;
+    font-size: 16px !important;
+}
+
+.flexContainer > div.last {
+	border-right: 1px solid black;
+}
+
+.we {
+	color: blue;
+}
+
+.clear {
+	clear: both;
+}
+
+#monthLabel {
+	margin: 30px 0;
+	text-align: center;
+}
+
+.today {
+	background-color: lavender;
+}
+
+.dayContainer {
+	padding: 4px;
+}
