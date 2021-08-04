@@ -1,18 +1,21 @@
-$(document).on('ready', function() {
- 	setup();
+$(document).on('ready', function () {	
+	setup(true);
+	setup(false);
 });
 
-function setup() {	
+function setup(isCurrentMonth) {	
 	var now = moment();
+	if (!isCurrentMonth) now = now.add(1, 'M');
+	var monthNumber = now.format('MM');
 	var monthLabel = now.format('MMMM YYYY');
 	$('#monthLabel').text(monthLabel);
 	
 	var weekdays = moment.weekdays();
 	var wd1 = weekdays.shift();
 	weekdays.push(wd1);
-	var daysInMonth = moment().daysInMonth();
-	var firstDayInMonth = moment().startOf('month').format('dddd');
-	var dayOfMonth = now.format('D');
+	var daysInMonth = now.daysInMonth();
+	var firstDayInMonth = now.startOf('month').format('dddd');
+	var dayOfMonth = moment().format('D');
 	
 	var shouldAddNumber = false;
 	var hasWeeks = true;
@@ -33,7 +36,7 @@ function setup() {
 				if (dayNr == daysInMonth) shouldAddNumber = false; 				
 			}						
 			
-			if (obj.number) obj.menu = window.menus[obj.number];
+			if (obj.number) obj.menu = window['menus' + monthNumber][obj.number];
 			calendarDays.push(obj);
 		}		
 		
@@ -47,6 +50,8 @@ function setup() {
 	
 	html +=
 			`
+				<div class="monthLabel">${monthLabel}</monthLabel>
+				<div class="clear" style="height: 10px"></div>
 				<div class="flexContainer top">		
 			`;	
 			
@@ -67,7 +72,7 @@ function setup() {
 	
 	for (var i = 0; i < calendarDays.length; i++) {		
 		var cday = calendarDays[i];
-		var today = cday.number == dayOfMonth ? 'today' : '';
+		var today = cday.number == dayOfMonth && isCurrentMonth ? 'today' : '';
 		var menu = cday.menu || '';
 		var nr = cday.number || '';
 		var we = cday.label == 'Saturday' || cday.label == 'Sunday' ? 'we' : '';
@@ -92,10 +97,12 @@ function setup() {
 		if (cday.label == 'Sunday') {
 			html +=
 			`
-				</div>			
+				</div>				
 			`;		
 		}
 	}
-	
+
+	html += '<div class="clear" style="height: 20px"></div>';
+
 	$(html).appendTo('body');
 }

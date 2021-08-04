@@ -13,15 +13,21 @@ namespace Menuplanung
             var directoryBase = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
             var directory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.Parent.FullName;            
             var listOfObjects = File.ReadLines($"{directoryBase}/list.csv").Select(line => new Tuple<string, string>(line.Split(',')[0], String.Join(",", line.Split(',').Skip(1)).Trim('"'))).ToList();
-            //test
+
+            var sb = new StringBuilder();
+            GetMonthMenus(ref sb, listOfObjects, true);
+            GetMonthMenus(ref sb, listOfObjects, false);
+
+            File.WriteAllText($"{directory}/Webseite/Scripts/menus.js", sb.ToString());
+        }
+
+        static void GetMonthMenus(ref StringBuilder sb, List<Tuple<string, string>> listOfObjects, bool isCurrentMonth)
+        {
             var entries = listOfObjects.Count();
             Random r = new Random();
 
             var now = DateTime.Now;
-            if (args.Length == 0 || string.IsNullOrEmpty(args[0])) {
-                var remaining = 30 - now.Day;
-                now = now.AddDays(remaining + 10);
-            }
+            if (!isCurrentMonth) now = now.AddMonths(1);
 
             var month = now.ToString("MM");
             var days = 31;
@@ -39,8 +45,8 @@ namespace Menuplanung
 
             var usedCategories = new List<string>();
             var usedEntries = new List<int>();
-            var sb = new StringBuilder();
-            sb.Append("var menus = {");
+            
+            sb.Append("var menus" + month + " = {");
             sb.AppendLine();
             for (var i = 0; i < days; i++)
             {
@@ -68,9 +74,7 @@ namespace Menuplanung
                 if (i < days - 1) sb.Append(", ");
                 sb.AppendLine();
             }
-            sb.Append("};");
-
-            File.WriteAllText($"{directory}/Webseite/Scripts/menus.js", sb.ToString());
+            sb.Append("};\r\n");            
         }
 
         static int CountOccurrences(List<string> usedCategories, string str)

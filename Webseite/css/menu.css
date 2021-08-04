@@ -17,7 +17,7 @@ body {
 }
 
 .flexContainer:not(.top) {
-	height: 10%;
+	height: 7%;
 }
 
 .flexContainer:not(.top) > div {
@@ -43,7 +43,7 @@ body {
 	clear: both;
 }
 
-#monthLabel {
+.monthLabel {
 	margin: 30px 0;
 	text-align: center;
 }
