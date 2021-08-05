@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 
 namespace Menuplanung
@@ -14,15 +15,27 @@ namespace Menuplanung
             var directory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.Parent.FullName;            
             var listOfObjects = File.ReadLines($"{directoryBase}/list.csv").Select(line => new Tuple<string, string>(line.Split(',')[0], String.Join(",", line.Split(',').Skip(1)).Trim('"'))).ToList();
 
-            var sb = new StringBuilder();
-            GetMonthMenus(ref sb, listOfObjects, true);
-            GetMonthMenus(ref sb, listOfObjects, false);
+            var sb = new StringBuilder();            
+            GetMonthMenus(ref sb, listOfObjects, false, out string monthNumber);
 
-            File.WriteAllText($"{directory}/Webseite/Scripts/menus.js", sb.ToString());
+            var path = $"{directory}/Webseite/Scripts/menus/menus_{monthNumber}.js";
+            File.WriteAllText(path, sb.ToString());
+            UploadFile(path);
         }
 
-        static void GetMonthMenus(ref StringBuilder sb, List<Tuple<string, string>> listOfObjects, bool isCurrentMonth)
+        static void UploadFile(string path)
         {
+            var filename = Path.GetFileName(path);
+            using (var client = new WebClient())
+            {
+                client.Credentials = new NetworkCredential("susifu\\$susifu", "hAMYccHlhx6KwEqdWka20wXN3qtaqg577pbWhckEJNB6b6Yh5sX91r5Zojmu");
+                client.UploadFile($"ftp://waws-prod-am2-059.ftp.azurewebsites.windows.net/site/wwwroot/scripts/menus/{filename}", WebRequestMethods.Ftp.UploadFile, path);
+            }
+        }
+
+        static void GetMonthMenus(ref StringBuilder sb, List<Tuple<string, string>> listOfObjects, bool isCurrentMonth, out string monthNumber)
+        {
+            const int daysToReset = 14;
             var entries = listOfObjects.Count();
             Random r = new Random();
 
@@ -43,6 +56,7 @@ namespace Menuplanung
                     break;
             }
 
+            monthNumber = month;
             var usedCategories = new List<string>();
             var usedEntries = new List<int>();
             
@@ -50,7 +64,7 @@ namespace Menuplanung
             sb.AppendLine();
             for (var i = 0; i < days; i++)
             {
-                if (i % 14 == 0) usedCategories.Clear();
+                if (i % daysToReset == 0) usedCategories.Clear();
                 int rInt;
                 bool contained;
                 Tuple<string, string> tup;
@@ -64,7 +78,8 @@ namespace Menuplanung
                     if (!contained)
                     {
                         usedEntries.Add(rInt);
-                        usedCategories.Add(tup.Item1);
+                        usedCategories.Add(tup.Item1);                        
+                        if (i > daysToReset) usedEntries.RemoveAt(0);
                     }
                 } while (contained);
 

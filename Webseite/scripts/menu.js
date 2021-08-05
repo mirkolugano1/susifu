@@ -9,6 +9,7 @@ function setup(isCurrentMonth) {
 	var monthNumber = now.format('MM');
 	var monthLabel = now.format('MMMM YYYY');
 	$('#monthLabel').text(monthLabel);
+	if (!window['menus' + monthNumber]) return;
 	
 	var weekdays = moment.weekdays();
 	var wd1 = weekdays.shift();
