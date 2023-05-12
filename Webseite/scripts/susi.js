@@ -214,7 +214,9 @@ e a Gran Canaria
 #$$$#
 e altre gite varie
 #$$$$#
-e in generale è bello sapere che abbiamo ancora tanti progetti in programma da realizzare (casa, finanze, ditta, ecc.).# 
+e in generale è bello sapere che abbiamo ancora tanti progetti in programma da realizzare (casa, finanze, ditta, ecc.)...#
+sapendo che in ogni istante ci si puo rilassare con una vista piacevole...
+#$#
 ## Ti amo tanto ##@##*
 `;
 
@@ -370,7 +372,8 @@ var images = {
         '2023_9',
         '2023_10',
         '2023_11',
-        '2023_12'
+        '2023_12',
+        '2023_13'
     ],
     2024: [
         '2024_0',
