@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "GIAvv0qzMYfMAmWVmF3LE56+87BxOq3RlpCs2gTeYVtLSnJWsF5nXPMT1o5a3/2QLIcbBpwuLkOefCThICCZ5Q==",
+  "dgSpecHash": "Q0l0hbX92uR7b3af+TRs3QOiG72GAET+rinVIA/CAhzMplbl2NNW8yJy2wCzb2QfHu63eIFDAwBIlYZYUSsxwg==",
   "success": true,
   "projectFilePath": "C:\\Users\\mirko\\source\\repos\\susifu\\Webseite\\Webseite.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\mirko\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.32\\microsoft.netcore.app.host.win-x64.3.1.32.nupkg.sha512"
+  ],
   "logs": []
 }

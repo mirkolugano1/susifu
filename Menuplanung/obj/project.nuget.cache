@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ioSth9cG06EMJ7oa4qGTUw+Yq+knPqNKjb3j9V6EmbQeBJyiOTyqTo8m55YmRXH1LLbIC+nLzzF31HadKQ2KxQ==",
+  "dgSpecHash": "vXNaZql2V+Va4Fo/VpKFlA7WHIACydDBsDVIFvp5UzlMCjZqjx3RrvK5i1rTNYh+t4f6pfRs7s2ICtEfADZlPA==",
   "success": true,
   "projectFilePath": "C:\\Users\\mirko\\source\\repos\\susifu\\Menuplanung\\Menuplanung.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\mirko\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.32\\microsoft.netcore.app.host.win-x64.3.1.32.nupkg.sha512"
+  ],
   "logs": []
 }
