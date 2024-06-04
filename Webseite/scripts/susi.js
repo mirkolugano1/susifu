@@ -249,7 +249,31 @@ Ora che inizia anche a migliorare la situazione con i bambini, sono fiducioso e 
 ## Ti amo tanto ##@##*
 `;
 
-var text2024 = '';
+var text2024 = `
+Cara Susi##@##
+#$#
+a quanto pare, abbiamo passato la prova del 9 :)
+ogni anno è impegnativo, ma è sempre una soddisfazione maggiore, anche per merito loro
+#$$#
+che crescono con noi
+#$$#
+Nonostante i mille impegni, anche quest'anno abbiamo trovato il modo di passare dei bei momenti, tipo a Gran Canaria
+#$$#
+a Mallorca
+#$$#
+in Corsica
+#$$#
+a Reichenau
+#$$#
+a Brunau :D
+#$$#
+e in generale in attività che ci permettono di passare bei momenti tutti quanti assieme
+#$$$#
+o con amici
+#$$#
+con la consapevolezza e la determinazione di portare avanti i nostri tanti progetti :)
+## Ti amo tanto ##@##*
+`;
 
 var text2025 = '';
 
@@ -376,38 +400,26 @@ var images = {
         '2023_13'
     ],
     2024: [
-        '2024_0',
-        '2024_1',
-        '2024_2',
-        '2024_3',
-        '2024_4',
-        '2024_5',
-        '2024_6',
-        '2024_7',
-        '2024_8',
-        '2024_9',
-        '2024_10',
-        '2024_11',
-        '2024_12',
-        '2024_13',
-        '2024_14',
-        '2024_15',
-        '2024_16',
-        '2024_17',
-        '2024_18',
-        '2024_19',
-        '2024_20',
-        '2024_21',
-        '2024_22',
-        '2024_23',
-        '2024_24',
-        '2024_25',
-        '2024_26',
-        '2024_27',
-        '2024_28',
-        '2024_29',
-        '2024_30',
-        '2024_31'
+        '2024wellness',
+        'cornice_ma',
+        'cornice_ni',
+        '2023cplmartina',
+        '2023cplnico', 
+        '2024grancanaria',
+        '2024grancanaria1',
+        '2023mallorca',
+        '2023mallorca1',
+        '2023corsica',
+        '2023corsica1',
+        '2024reichenau', 
+        '2024reichenau1',
+        '2024calcio',
+        '2023zurich',
+        '2024badsackingen',
+        '2024trampolino',
+        '2024zoo',
+        '2024laurareck',
+        '2024friends'
     ],
     2025: [
         '2025_0',
