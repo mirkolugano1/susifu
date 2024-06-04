@@ -268,7 +268,7 @@ a Reichenau
 a Brunau :D
 #$$#
 e in generale in attività che ci permettono di passare bei momenti tutti quanti assieme
-#$$$#
+#$$$$#
 o con amici
 #$$#
 con la consapevolezza e la determinazione di portare avanti i nostri tanti progetti :)
@@ -417,6 +417,7 @@ var images = {
         '2023zurich',
         '2024badsackingen',
         '2024trampolino',
+        '2024cucina',
         '2024zoo',
         '2024laurareck',
         '2024friends'
